@@ -62,5 +62,22 @@ sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf
 Replace ‘127.0.0.1’ to ‘0.0.0.0’ like this:
 ![Remote-hosts-configuration](./Images/Remote-hosts-configuration.png)
 
+Create user on MYSQL Server for remote user
+```markdown
+Create user 'lourash1'@'%' identified  with mysql_native_password by 'password';
+```
+6.From mysql client Linux Server connect remotely to mysql server Database Engine without using SSH. You must use the mysql utility to perform this action.
 
+7.connect to MYSQLSERVER from MYSQLCLIENT using the commnand below
+```markdown
+mysql -h 172.31.92.0 -P 3306 -u lourash1 -p
+```
 
+![Remote-connectiontion-to-DB](./Images/Remote-connectiontion-to-DB.png)
+
+Confirmation that the database connection is successful can be done by running the query below
+```markdown
+Show databases;
+```
+
+![Show-databases](./Images/Show-databases.png)
